@@ -1,0 +1,21 @@
+{
+  "note": "示例规格，供人工/助手规划；不是 pack_frames.py 的配置输入。reference 是占位路径。",
+  "action": "fist-right",
+  "reference": "./reference/hero.png",
+  "style": "细致手绘2D卡通，沿用角色外形、服装和轮廓",
+  "direction": "right",
+  "source_type": "new-key-poses",
+  "pose_count": 6,
+  "phases": ["guard", "prepare", "extend", "impact", "retract", "guard"],
+  "durations_ms": [80, 80, 80, 80, 80, 80],
+  "loop": false,
+  "hold_last": true,
+  "body_height_reference_px": 600,
+  "display_body_height_px": 38,
+  "anchor_convention": "可信躯干中心X，站定地面Y；逐帧标定另存 anchors.json",
+  "contact_frame_indices": [3],
+  "index_base": 0,
+  "timing_note": "480ms为试看片节奏，游戏命中时间需另行映射，不由本规格自动接入。",
+  "provenance": {"provider": "记录实际接口；未知时填unknown", "model": "unknown", "transforms": []},
+  "checks": {"identity": "pending", "motion": "pending", "alpha": "pending", "runtime": "not-integrated"}
+}
