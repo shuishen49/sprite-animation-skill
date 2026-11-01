@@ -4,6 +4,8 @@
 
 本仓库总结工作方法，不重新分发整套游戏美术。外部文档是证据和参考，其中的旧环境说明、模型推测或历史临时路径不是复现所必需的配置。
 
+本方法不依赖某个特定的上游生成/处理工具：生图由当前环境实际可用的能力完成（见 [生图方法](image-generation.md)），抠像、对齐、裁切、排时和打包由确定性脚本完成。执行任何外部工具命令前先看已安装版本的 `--help`；工具版本或参数可能变化。当前环境没有对应生成或视频能力时，应说明可用范围，继续做已授权的整理、测量或打包，不编造服务调用结果。
+
 ## 实际用过的路线
 
 | 阶段 | 实际方法 | 不应推断成什么 |
@@ -28,14 +30,6 @@
 - [徒手攻击修正版](https://github.com/shuishen49/yixian-1992/blob/aaf0fef29ccd24cd116fe665623a82438319ffe3/docs/art-experiments/sprite-gen-hero/hero-action-suite-v1/updates/fist-v2/README.md)：将后摆拳改为清楚的前向直拳。
 - [当前运行素材打包器](https://github.com/shuishen49/yixian-1992/blob/aaf0fef29ccd24cd116fe665623a82438319ffe3/tools/build-runtime-hero-actions.py)：使用已审源帧、统一站立比例和锚点、整身体搬运姿势、握点同步变换，脚本自身不调用生图接口。
 - [真实搬运验收](https://github.com/shuishen49/yixian-1992/blob/aaf0fef29ccd24cd116fe665623a82438319ffe3/tools/verify-carry-repair.cjs) 与 [真实运行图集验收](https://github.com/shuishen49/yixian-1992/blob/aaf0fef29ccd24cd116fe665623a82438319ffe3/tools/verify-runtime-hero-actions.cjs)：完整身体姿势、当前帧手心、脱手连续性、方向、暂停、角色切换与实际游戏帧检查。
-
-## sprite-gen 在流程中的角色
-
-上游项目：[aldegad/sprite-gen](https://github.com/aldegad/sprite-gen)。本次参考实现使用版本3.13.0、提交 [`1fdf789d60321a6852319920339a9c0279d41e56`](https://github.com/aldegad/sprite-gen/tree/1fdf789d60321a6852319920339a9c0279d41e56)。
-
-本项目实际借用了它的自动抠像、键色去污染、软alpha安全缩放与GIF导出。关键姿势由可用的生图接口制作，锚点测量、源姿势提取、动作排时和游戏握点由项目脚本完成。上游还提供其他功能，不能因本项目只用了其中一部分，就把整个工具概括成“GIF拼接器”。
-
-执行任何上游命令前，先看已安装版本的 `--help`；工具版本或参数可能变化。当前环境没有对应生成或视频能力时，应说明可用范围，继续做已授权的整理、测量或打包，不编造服务调用结果。
 
 ## 这个Skill能承诺的边界
 

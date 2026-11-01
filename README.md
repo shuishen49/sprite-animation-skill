@@ -2,7 +2,7 @@
 
 **游戏角色序列帧动画制作**：从角色参考、关键姿势设计到透明 PNG、精灵图集和 GIF 预览，整理自《异县1992》的实际制作与修复过程。
 
-入口是 [SKILL.md](SKILL.md)。这是给 AI 助手使用的工作方法，并附一个处理已有帧的打包脚本。生图由当前环境中可用的图像工具完成，本仓库不自带图像模型、视频服务或 API 凭据。
+入口是 [SKILL.md](SKILL.md)。这是给 AI 助手使用的工作方法，并附一个处理已有帧的打包脚本。生图由当前环境中可用的图像工具完成，本仓库不自带图像模型、视频服务或 API 凭据；实际可用的生图方法见 [生图方法](references/image-generation.md)。
 
 ## 能做什么
 
@@ -50,13 +50,21 @@ python -m unittest discover -s tests -v
 | --- | --- |
 | [SKILL.md](SKILL.md) | 助手执行入口与交付约定 |
 | [workflow.md](references/workflow.md) | 从参考、关键姿势到接入的实际步骤 |
+| [image-generation.md](references/image-generation.md) | 生图方法（灵感平台 Go 直连）与上游工具的等价要求 |
 | [prompts.md](references/prompts.md) | 角色一致性、走路、攻击和搬运提示词 |
 | [quality-and-pitfalls.md](references/quality-and-pitfalls.md) | 验收项目、典型失败与修复方法 |
 | [provenance.md](references/provenance.md) | 方法来源、版本变化与能力边界 |
 | [action-spec.json](examples/action-spec.json) | 动作规格示例，供项目自行扩展 |
 
-## 与 sprite-gen 的关系
+## 效果图
 
-[aldegad/sprite-gen](https://github.com/aldegad/sprite-gen) 是可选的生成与素材处理工具集。历史实验使用过它的抠像、去溢色、透明缩放和导出功能。本 Skill 总结项目经验，并不复制它的引擎或宣称实现其全部功能。已准备好透明帧时，本仓库打包脚本可以独立使用。
+《异县1992》主角动作预览集·等比例总览：26 个动作，每行 5 个，每格标注方向与制作来源（新绘 / 分层 / 校准 / 镜像 / 反序 / 复用）和帧数。
 
-历史动作预览可查看 [《异县1992》动作集](https://github.com/shuishen49/yixian-1992/tree/aaf0fef29ccd24cd116fe665623a82438319ffe3/docs/art-experiments/sprite-gen-hero/hero-action-suite-v1)。示例角色与历史素材仍在原仓库，本仓库不包含它们，也不授予它们的使用许可。
+![主角动作预览集·等比例总览](examples/hero-action-suite-overview.gif)
+
+这张图集中体现了本 Skill 的两条主张：
+
+- **动作语义优先**：奔跑要有腾空、挥击要有接触与收势，不能只是把待机换张脸。
+- **来源必须诚实**：26 个条目不等于 26 套全新原画；每个格子的来源标签说明了它到底是怎么来的。
+
+示例角色与历史素材仍在 [原仓库](https://github.com/shuishen49/yixian-1992)，本图仅作方法效果示意，不授予角色素材的使用许可。
